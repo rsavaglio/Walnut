@@ -1,2 +1,2 @@
 # Walnut
-Walnut Game Engine
+Walnut Engine
