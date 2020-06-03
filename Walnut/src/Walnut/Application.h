@@ -1,5 +1,7 @@
 #pragma once
 #include "Core.h"
+#include "Walnut/Events/ApplicationEvent.h"
+#include "Log.h"
 
 namespace Walnut {
 
