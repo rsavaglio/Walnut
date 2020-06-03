@@ -1,37 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Walnut">
+      <UniqueIdentifier>{C038E8D9-ACDA-12B0-9595-260481D69900}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Walnut">
-      <UniqueIdentifier>{5ea564fe-3e29-45a0-9e0f-9cbf176365d3}</UniqueIdentifier>
-    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Walnut.h" />
+    <ClInclude Include="src\Walnut\Application.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\Core.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\EntryPoint.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\Log.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">
-      <Filter>Source Files\Walnut</Filter>
+      <Filter>Walnut</Filter>
     </ClCompile>
     <ClCompile Include="src\Walnut\Log.cpp">
-      <Filter>Source Files\Walnut</Filter>
+      <Filter>Walnut</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Walnut\Application.h">
-      <Filter>Source Files\Walnut</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut\Core.h">
-      <Filter>Source Files\Walnut</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut\EntryPoint.h">
-      <Filter>Source Files\Walnut</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut\Log.h">
-      <Filter>Source Files\Walnut</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
