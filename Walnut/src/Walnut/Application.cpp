@@ -1,4 +1,7 @@
+#include "wnpch.h"
 #include "Application.h"
+
+#include "Walnut/Events/ApplicationEvent.h"
 
 namespace Walnut {
 

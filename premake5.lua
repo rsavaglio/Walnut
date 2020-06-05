@@ -18,6 +18,9 @@ project "Walnut"
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "wnpch.h"
+	pchsource "Walnut/src/wnpch.cpp"
+
 
 	files
 	{
