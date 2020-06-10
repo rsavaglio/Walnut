@@ -1,6 +1,7 @@
 #pragma once
 #include "Core.h"
 #include "Log.h"
+#include "Window.h"
 
 namespace Walnut {
 
@@ -11,6 +12,10 @@ namespace Walnut {
 		virtual ~Application(); // This class is sub-classes by applications
 
 		void Run();
+
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	// To de defined in CLIENT

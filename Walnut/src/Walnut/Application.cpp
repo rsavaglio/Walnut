@@ -3,10 +3,13 @@
 
 #include "Walnut/Events/ApplicationEvent.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Walnut {
 
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -15,18 +18,12 @@ namespace Walnut {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1200, 720);
 
-		// Test, should only be logged once
-		if (e.IsInCategory(EventCategoryInput))
+		while (m_Running)
 		{
-			WN_TRACE(e);
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
 		}
-		if (e.IsInCategory(EventCategoryApplication))
-		{
-			WN_TRACE(e);
-		}
-
- 		while (true); // Simple
 	}
 }

@@ -22,7 +22,6 @@ namespace Walnut {
 }
 
 
-
 // Core Log Macros
 #define WN_CORE_TRACE(...) ::Walnut::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define WN_CORE_INFO(...)  ::Walnut::Log::GetCoreLogger()->info(__VA_ARGS__)

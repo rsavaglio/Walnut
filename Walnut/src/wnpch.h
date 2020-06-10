@@ -13,7 +13,7 @@
 #include <unordered_set>
 
 
-
+#include "Walnut/Log.h"
 
 
 #ifdef WN_PLATFORM_WINDOWS

@@ -9,9 +9,7 @@ int main(int argc, char** argv)
 {
 	// Starting log here for now
 	Walnut::Log::Init();
-	WN_CORE_WARN("Initialized Log!");
-	int a = 5;
-	WN_INFO("Hello! Var={0}", a);
+	WN_CORE_INFO("Initialized Log!");
 
 	auto app = Walnut::CreateApplication();
 	app->Run();

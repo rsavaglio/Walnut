@@ -10,6 +10,12 @@ workspace "Walnut"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{architechture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {} -- Struct, LUA Table
+IncludeDir ["GLFW"] = "Walnut/vendor/GLFW/include"
+
+include "Walnut/vendor/GLFW" -- this includes the premake file from the submodule, gets included like a header file
+
 project "Walnut"
 	location "Walnut"
 	kind "SharedLib"
@@ -31,7 +37,14 @@ project "Walnut"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
