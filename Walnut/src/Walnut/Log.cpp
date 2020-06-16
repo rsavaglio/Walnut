@@ -13,10 +13,10 @@ namespace Walnut {
 		// Timestamp, name of the logger, message
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 
-		s_CoreLogger = spdlog::stdout_color_mt("Walnut");
+		s_CoreLogger = spdlog::stdout_color_mt("WALNUT");
 		s_CoreLogger->set_level(spdlog::level::trace);
 
-		s_ClientLogger = spdlog::stdout_color_mt("App");
+		s_ClientLogger = spdlog::stdout_color_mt("APP");
 		s_ClientLogger->set_level(spdlog::level::trace);
 	}
 
