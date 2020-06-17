@@ -30,11 +30,11 @@ namespace Walnut {
 #define WN_CORE_FATAL(...) ::Walnut::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 // Client Log Macros
-#define WN_TRACE(...)      ::Walnut::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define WN_INFO(...)       ::Walnut::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define WN_WARN(...)       ::Walnut::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define WN_ERROR(...)      ::Walnut::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define WN_FATAL(...)      ::Walnut::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define WN_TRACE(...)      ::Walnut::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define WN_INFO(...)       ::Walnut::Log::GetClientLogger()->info(__VA_ARGS__)
+#define WN_WARN(...)       ::Walnut::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define WN_ERROR(...)      ::Walnut::Log::GetClientLogger()->error(__VA_ARGS__)
+#define WN_FATAL(...)      ::Walnut::Log::GetClientLogger()->fatal(__VA_ARGS__)
 
 
 // Macros are handy, and also allow us to strip these calls from distribution builds

@@ -50,8 +50,7 @@ namespace Walnut {
 			return GetCategoryFlags() & category;
 		}
 
-	protected:
-		bool m_Handled = false;
+		bool Handled = false;
 	};
 
 	class EventDispatcher
@@ -72,14 +71,14 @@ namespace Walnut {
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
 				// Call the function
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				return true;
 			}
 			// If they don't match, do nothing
 			return false;
 		}
 	private:
-		Event& m_Event;
+		Event& m_Event; 
 	};
 
 	inline std::ostream& operator <<(std::ostream& os, const Event& e)

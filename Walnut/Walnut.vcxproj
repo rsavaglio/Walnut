@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -157,6 +160,8 @@
     <ClInclude Include="src\Walnut\Events\Event.h" />
     <ClInclude Include="src\Walnut\Events\KeyEvent.h" />
     <ClInclude Include="src\Walnut\Events\MouseEvent.h" />
+    <ClInclude Include="src\Walnut\Layer.h" />
+    <ClInclude Include="src\Walnut\LayerStack.h" />
     <ClInclude Include="src\Walnut\Log.h" />
     <ClInclude Include="src\Walnut\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Walnut\Window.h" />
@@ -164,6 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp" />
+    <ClCompile Include="src\Walnut\Layer.cpp" />
+    <ClCompile Include="src\Walnut\LayerStack.cpp" />
     <ClCompile Include="src\Walnut\Log.cpp" />
     <ClCompile Include="src\Walnut\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\wnpch.cpp">

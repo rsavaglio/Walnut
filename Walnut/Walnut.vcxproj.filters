@@ -8,10 +8,10 @@
       <UniqueIdentifier>{A48C4E08-104D-CA3E-D987-13BC45070F1B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Walnut\Platform">
-      <UniqueIdentifier>{450fb62d-2088-425a-adee-d9f656118509}</UniqueIdentifier>
+      <UniqueIdentifier>{144D4272-80D8-AF36-89E9-322BF5F30B37}</UniqueIdentifier>
     </Filter>
     <Filter Include="Walnut\Platform\Windows">
-      <UniqueIdentifier>{22916a8d-13b6-4c36-bd43-b052ea5036ce}</UniqueIdentifier>
+      <UniqueIdentifier>{4ECB05A2-BA02-4E39-C30C-B25C2FC37432}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,27 +37,39 @@
     <ClInclude Include="src\Walnut\Events\MouseEvent.h">
       <Filter>Walnut\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Walnut\Layer.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\LayerStack.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
     <ClInclude Include="src\Walnut\Log.h">
       <Filter>Walnut</Filter>
     </ClInclude>
-    <ClInclude Include="src\wnpch.h" />
     <ClInclude Include="src\Walnut\Platform\Windows\WindowsWindow.h">
       <Filter>Walnut\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Walnut\Window.h">
       <Filter>Walnut</Filter>
     </ClInclude>
+    <ClInclude Include="src\wnpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">
       <Filter>Walnut</Filter>
     </ClCompile>
+    <ClCompile Include="src\Walnut\Layer.cpp">
+      <Filter>Walnut</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\LayerStack.cpp">
+      <Filter>Walnut</Filter>
+    </ClCompile>
     <ClCompile Include="src\Walnut\Log.cpp">
       <Filter>Walnut</Filter>
     </ClCompile>
-    <ClCompile Include="src\wnpch.cpp" />
     <ClCompile Include="src\Walnut\Platform\Windows\WindowsWindow.cpp">
       <Filter>Walnut\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\wnpch.cpp" />
   </ItemGroup>
 </Project>
