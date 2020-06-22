@@ -27,6 +27,7 @@ public:
 	{
 		WN_TRACE("Help");
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Walnut::ImGuiLayer());
 	}
 
 	~Sandbox() {}

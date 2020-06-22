@@ -4,3 +4,6 @@
 [submodule "Walnut/vendor/GLFW"]
 	path = Walnut/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Walnut/vendor/imgui"]
+	path = Walnut/vendor/imgui
+	url = https://github.com/TheCherno/imgui.git

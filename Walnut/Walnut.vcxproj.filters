@@ -7,8 +7,14 @@
     <Filter Include="Walnut\Events">
       <UniqueIdentifier>{A48C4E08-104D-CA3E-D987-13BC45070F1B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Walnut\ImGui">
+      <UniqueIdentifier>{EA3DE893-D6A0-7738-7F26-B0EE6B6843BB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Walnut\Platform">
       <UniqueIdentifier>{144D4272-80D8-AF36-89E9-322BF5F30B37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Walnut\Platform\OpenGL">
+      <UniqueIdentifier>{C8F78A38-B4F1-B38A-9D5E-4A9B89F719F7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Walnut\Platform\Windows">
       <UniqueIdentifier>{4ECB05A2-BA02-4E39-C30C-B25C2FC37432}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Walnut\Events\MouseEvent.h">
       <Filter>Walnut\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Walnut\ImGui\ImGuiLayer.h">
+      <Filter>Walnut\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Walnut\Layer.h">
       <Filter>Walnut</Filter>
     </ClInclude>
@@ -45,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="src\Walnut\Log.h">
       <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Walnut\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Walnut\Platform\Windows\WindowsWindow.h">
       <Filter>Walnut\Platform\Windows</Filter>
@@ -58,6 +70,9 @@
     <ClCompile Include="src\Walnut\Application.cpp">
       <Filter>Walnut</Filter>
     </ClCompile>
+    <ClCompile Include="src\Walnut\ImGui\ImGuiLayer.cpp">
+      <Filter>Walnut\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Walnut\Layer.cpp">
       <Filter>Walnut</Filter>
     </ClCompile>
@@ -66,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="src\Walnut\Log.cpp">
       <Filter>Walnut</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Walnut\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Walnut\Platform\Windows\WindowsWindow.cpp">
       <Filter>Walnut\Platform\Windows</Filter>

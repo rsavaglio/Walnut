@@ -13,8 +13,14 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{architechture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {} -- Struct, LUA Table
 IncludeDir ["GLFW"] = "Walnut/vendor/GLFW/include"
+IncludeDir ["Glad"] = "Walnut/vendor/Glad/include"
+IncludeDir ["ImGui"] = "Walnut/vendor/imgui"
 
-include "Walnut/vendor/GLFW" -- this includes the premake file from the submodule, gets included like a header file
+
+-- Include other premake files
+include "Walnut/vendor/GLFW" 
+include "Walnut/vendor/Glad"
+include "Walnut/vendor/imgui"
 
 project "Walnut"
 	location "Walnut"
@@ -38,12 +44,16 @@ project "Walnut"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -55,7 +65,8 @@ project "Walnut"
 		defines
 		{
 			"WN_PLATFORM_WINDOWS",
-			"WN_BUILD_DLL"
+			"WN_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
