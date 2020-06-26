@@ -10,7 +10,11 @@
 	#error Walnut only supports Windows!
 #endif
 
-#ifdef WN_ENABLE_ASSETS
+#ifdef WN_DEBUG
+	#define WN_ENABLE_ASSERTS
+#endif
+
+#ifdef WN_ENABLE_ASSERTS
 	#define WN_ASSERT(x, ...) {if(!(x)) {WN_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak();}}
 	#define WN_CORE_ASSERT(x, ...) {if(!(x)) {WN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak();}}
 #else
