@@ -16,9 +16,6 @@
     <Filter Include="src\Walnut\Platform">
       <UniqueIdentifier>{2B74AA8C-97D5-879A-2043-CE4C8CA3BE59}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Walnut\Platform\OpenGL">
-      <UniqueIdentifier>{FF5E4BCF-EB6E-F79F-5428-5CBE4057E638}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Walnut\Platform\Windows">
       <UniqueIdentifier>{6519D310-D126-01F7-5A0D-FDE1C619CDAD}</UniqueIdentifier>
     </Filter>
@@ -89,9 +86,6 @@
     </ClInclude>
     <ClInclude Include="src\Walnut\MouseButtonCodes.h">
       <Filter>src\Walnut</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut\Platform\OpenGL\ImGuiOpenGLRenderer.h">
-      <Filter>src\Walnut\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Walnut\Platform\Windows\WindowsInput.h">
       <Filter>src\Walnut\Platform\Windows</Filter>
@@ -1334,6 +1328,9 @@
     <ClCompile Include="src\Walnut\Application.cpp">
       <Filter>src\Walnut</Filter>
     </ClCompile>
+    <ClCompile Include="src\Walnut\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Walnut\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Walnut\ImGui\ImGuiLayer.cpp">
       <Filter>src\Walnut\ImGui</Filter>
     </ClCompile>
@@ -1345,9 +1342,6 @@
     </ClCompile>
     <ClCompile Include="src\Walnut\Log.cpp">
       <Filter>src\Walnut</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Walnut\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <Filter>src\Walnut\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Walnut\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Walnut\Platform\Windows</Filter>

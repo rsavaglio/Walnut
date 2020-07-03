@@ -14,6 +14,8 @@ public:
 			WN_TRACE("Tab key is pressed!");
 	}
 
+    
+
 	void OnEvent(Walnut::Event& event) override
 	{
 		// Testing keyboard input as chars
@@ -34,7 +36,6 @@ public:
 	{
 		WN_INFO("Sandbox application created!");
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Walnut::ImGuiLayer());
 	}
 
 	~Sandbox() {}
