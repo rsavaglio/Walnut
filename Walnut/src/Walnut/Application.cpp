@@ -2,6 +2,9 @@
 #include "Application.h"
 
 #include <Glad/glad.h>
+#include "Walnut/Log.h"
+
+#include "Walnut/Input.h"
 
 namespace Walnut {
 
@@ -60,6 +63,9 @@ namespace Walnut {
 			{
 				layer->OnUpdate();
 			}
+
+			auto [x, y] = Input::GetMousePosition();
+			WN_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}

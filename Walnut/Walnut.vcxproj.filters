@@ -65,6 +65,12 @@
       <Filter>Walnut</Filter>
     </ClInclude>
     <ClInclude Include="src\wnpch.h" />
+    <ClInclude Include="src\Walnut\Input.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\Platform\Windows\WindowsInput.h">
+      <Filter>Walnut\Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">
@@ -89,5 +95,8 @@
       <Filter>Walnut\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\wnpch.cpp" />
+    <ClCompile Include="src\Walnut\Platform\Windows\WindowsInput.cpp">
+      <Filter>Walnut\Platform\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
