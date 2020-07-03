@@ -7,3 +7,6 @@
 [submodule "Walnut/vendor/imgui"]
 	path = Walnut/vendor/imgui
 	url = https://github.com/rsavaglio/imgui.git
+[submodule "Walnut/vendor/glm"]
+	path = Walnut/vendor/glm
+	url = https://github.com/g-truc/glm
