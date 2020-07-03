@@ -64,8 +64,11 @@ namespace Walnut {
 				layer->OnUpdate();
 			}
 
-			auto [x, y] = Input::GetMousePosition();
-			WN_CORE_TRACE("{0}, {1}", x, y);
+			// Testing input polling
+			//auto [x, y] = Input::GetMousePosition();
+			//WN_CORE_TRACE("{0}, {1}", x, y);
+
+		
 
 			m_Window->OnUpdate();
 		}

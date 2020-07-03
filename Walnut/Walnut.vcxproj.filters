@@ -71,6 +71,12 @@
     <ClInclude Include="src\Walnut\Platform\Windows\WindowsInput.h">
       <Filter>Walnut\Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\Walnut\KeyCodes.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\MouseButtonCodes.h">
+      <Filter>Walnut</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">

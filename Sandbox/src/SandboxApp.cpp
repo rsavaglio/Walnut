@@ -9,12 +9,19 @@ public:
 
 	void OnUpdate() override
 	{
-		//WN_INFO("ExampleLayer::Update");
+		// Testing input polling
+		if (Walnut::Input::IsKeyPressed(WN_KEY_TAB))
+			WN_TRACE("Tab key is pressed!");
 	}
 
 	void OnEvent(Walnut::Event& event) override
 	{
-		WN_TRACE("{0}", event);
+		// Testing keyboard input as chars
+		if (event.GetEventType() == Walnut::EventType::KeyPressed)
+		{
+			Walnut::KeyPressedEvent& e = (Walnut::KeyPressedEvent&)event;
+			WN_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
@@ -25,7 +32,7 @@ class Sandbox : public Walnut::Application
 public: 
 	Sandbox() 
 	{
-		WN_TRACE("Help");
+		WN_INFO("Sandbox application created!");
 		PushLayer(new ExampleLayer());
 		PushOverlay(new Walnut::ImGuiLayer());
 	}
