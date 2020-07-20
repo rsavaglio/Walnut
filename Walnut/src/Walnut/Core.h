@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef WN_PLATFORM_WINDOWS
+#if WN_DYNAMIC_LINK
 	#ifdef WN_BUILD_DLL
 		#define WALNUT_API __declspec(dllexport)
 	#else
 		#define WALNUT_API __declspec(dllimport)
 	#endif
+#else
+	#define WALNUT_API
+#endif
 #else 
 	#error Walnut only supports Windows!
 #endif

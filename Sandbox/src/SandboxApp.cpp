@@ -1,5 +1,7 @@
 #include <Walnut.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Walnut::Layer
 {
 public:
@@ -14,6 +16,12 @@ public:
 			WN_TRACE("Tab key is pressed!");
 	}
 
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello!");
+		ImGui::End();
+	}
     
 
 	void OnEvent(Walnut::Event& event) override
