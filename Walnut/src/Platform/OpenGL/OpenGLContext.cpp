@@ -15,7 +15,12 @@ namespace Walnut {
 	{
 		glfwMakeContextCurrent(m_windowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		WN_CORE_ASSERT(status, "Failed to initialize Glad!")
+		WN_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		WN_CORE_INFO("OpenGL Info:");
+		WN_CORE_INFO("    Vendor: {0}", glGetString(GL_VENDOR));
+		WN_CORE_INFO("    Renderer: {0}", glGetString(GL_RENDERER));
+		WN_CORE_INFO("    Version: {0}", glGetString(GL_VERSION));
 	}
 	void OpenGLContext::SwapBuffers()
 	{
