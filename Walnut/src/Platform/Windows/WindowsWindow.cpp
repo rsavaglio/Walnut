@@ -4,8 +4,9 @@
 #include "Walnut/Events/ApplicationEvent.h"
 #include "Walnut/Events/KeyEvent.h"
 #include "Walnut/Events/MouseEvent.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
-#include <Glad/glad.h>
+
 
 namespace Walnut {
 
@@ -52,12 +53,11 @@ namespace Walnut {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		WN_CORE_ASSERT(status, "Failed to initialize Glad!")
-		
-			glfwSetWindowUserPointer(m_Window, &m_Data);
+
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
+		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
 		// Set GLFW Callbacks
@@ -159,7 +159,8 @@ namespace Walnut {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
+
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

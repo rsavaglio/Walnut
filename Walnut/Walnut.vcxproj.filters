@@ -40,6 +40,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Walnut\Renderer">
+      <UniqueIdentifier>{1c51247b-d085-44f4-bedf-d388d3c92fcb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Walnut.h">
@@ -86,12 +89,6 @@
     </ClInclude>
     <ClInclude Include="src\Walnut\MouseButtonCodes.h">
       <Filter>src\Walnut</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut\Platform\Windows\WindowsInput.h">
-      <Filter>src\Walnut\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Walnut\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Walnut\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Walnut\Window.h">
       <Filter>src\Walnut</Filter>
@@ -1323,6 +1320,16 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Walnut\Renderer\GraphicsContext.h">
+      <Filter>src\Walnut\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>src\Walnut\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>src\Walnut\Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">
@@ -1343,14 +1350,15 @@
     <ClCompile Include="src\Walnut\Log.cpp">
       <Filter>src\Walnut</Filter>
     </ClCompile>
-    <ClCompile Include="src\Walnut\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\Walnut\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Walnut\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Walnut\Platform\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="src\wnpch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>src\Walnut\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>src\Walnut\Platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
