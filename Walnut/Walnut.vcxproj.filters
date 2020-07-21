@@ -1330,6 +1330,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Walnut\Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\Walnut\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">
@@ -1360,5 +1361,6 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Walnut\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\Walnut\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,8 @@
 
 #include "Walnut/ImGui/ImGuiLayer.h"
 
+#include "Walnut/Renderer/Shader.h"
+
 namespace Walnut {
 
 	class WALNUT_API Application
@@ -39,6 +41,7 @@ namespace Walnut {
 
 		// Temp graphics stuff
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 
 	private:
 		static Application* s_Instance;
