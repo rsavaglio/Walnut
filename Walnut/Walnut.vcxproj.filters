@@ -1331,6 +1331,9 @@
       <Filter>src\Walnut\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Walnut\Renderer\Shader.h" />
+    <ClInclude Include="src\Walnut\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Walnut\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp">
@@ -1362,5 +1365,8 @@
       <Filter>src\Walnut\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Walnut\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Walnut\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Walnut\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>
