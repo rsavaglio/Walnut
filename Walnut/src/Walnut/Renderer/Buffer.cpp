@@ -42,4 +42,17 @@ namespace Walnut {
 		return nullptr;
 	}
 
+	VertexArray* VertexArray::Create()
+	{
+		switch (Renderer::GetAPI())
+		{
+		case RendererAPI::None: WN_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::OpenGL: return new OpenGLVertexArray();
+		}
+
+
+		WN_CORE_ASSERT(false, "Vertex Array not created, unknown RendererAPI!");
+		return nullptr;
+	}
+
 }

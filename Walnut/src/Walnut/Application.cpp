@@ -24,11 +24,11 @@ namespace Walnut {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		///// Temp Graphics Stuff /////
+		///////////////// Graphics Stuff /////////////////
 
 		// Vertex Array
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		m_VertexArray.reset(VertexArray::Create());
+
 
 		// Triangle Data
 		float vertices[3 * 3] = {
@@ -122,7 +122,8 @@ namespace Walnut {
 			m_Shader->Bind();
 
 			// Draw triangle
-			glBindVertexArray(m_VertexArray);
+			m_VertexArray->Bind();
+
 			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
