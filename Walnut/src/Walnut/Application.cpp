@@ -48,6 +48,8 @@ namespace Walnut {
 		uint32_t indices[3] = { 0, 1, 2 };
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 
+		// Shaders
+
 		std::string vertexSrc = R"( 
 			#version 330 core
 			
@@ -74,7 +76,7 @@ namespace Walnut {
 			}
 		)";
 
-		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(Shader::Create(vertexSrc, fragmentSrc));
 	}
 
 	Application::~Application()

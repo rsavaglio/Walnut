@@ -11,8 +11,6 @@
 namespace Walnut {
 
 
-
-
 	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		// Decide here which API we're using
@@ -26,7 +24,7 @@ namespace Walnut {
 			#endif
 		}
 
-		WN_CORE_ASSERT(false, "Unknown RendererAPI!");
+		WN_CORE_ASSERT(false, "VertexBuffer not created, unknown RendererAPI!");
 		return nullptr;
 
 	}
@@ -40,7 +38,7 @@ namespace Walnut {
 		}
 		
 
-		WN_CORE_ASSERT(false, "Unknown RendererAPI!");
+		WN_CORE_ASSERT(false, "Index Buffer not created, unknown RendererAPI!");
 		return nullptr;
 	}
 
