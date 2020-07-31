@@ -53,30 +53,4 @@ namespace Walnut {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
-
-	////////////////////// Vertex Array //////////////////////
-
-	OpenGLVertexArray::OpenGLVertexArray()
-	{
-		// Maybe 1 instead of m_Count
-		glGenVertexArrays(1, &m_RendererID);
-		glBindVertexArray(m_RendererID);
-	}
-
-	OpenGLVertexArray::~OpenGLVertexArray()
-	{
-		// May be wrong
-		glDeleteVertexArrays(1, &m_RendererID);
-	}
-
-	void OpenGLVertexArray::Bind() const
-	{
-		glBindVertexArray(m_RendererID);
-	}
-
-	void OpenGLVertexArray::Unbind() const
-	{
-		glBindVertexArray(0);
-	}
-
 }

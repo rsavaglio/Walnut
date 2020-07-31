@@ -164,6 +164,7 @@
     <ClInclude Include="src\Walnut\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Walnut\Renderer\Renderer.h" />
     <ClInclude Include="src\Walnut\Renderer\Shader.h" />
+    <ClInclude Include="src\Walnut\Renderer\VertexArray.h" />
     <ClInclude Include="src\Walnut\Window.h" />
     <ClInclude Include="src\wnpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -590,6 +591,7 @@
     <ClCompile Include="src\Walnut\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Walnut\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Walnut\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Walnut\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\wnpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
