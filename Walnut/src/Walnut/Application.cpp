@@ -14,26 +14,7 @@ namespace Walnut {
 
 	Application* Application::s_Instance = nullptr;
 
-	// Temp
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
-	{
-		switch (type)
-		{
-			case ShaderDataType::Float:   return GL_FLOAT;
-			case ShaderDataType::Float2:  return GL_FLOAT;
-			case ShaderDataType::Float3:  return GL_FLOAT;
-			case ShaderDataType::Float4:  return GL_FLOAT;
-			case ShaderDataType::Mat3:    return GL_FLOAT;
-			case ShaderDataType::Mat4:    return GL_FLOAT;
-			case ShaderDataType::Int:     return GL_INT;
-			case ShaderDataType::Int2:    return GL_INT;
-			case ShaderDataType::Int3:    return GL_INT;
-			case ShaderDataType::Int4:    return GL_INT;
-			case ShaderDataType::Bool:    return GL_BOOL;
-		}
-		WN_CORE_ASSERT(false, "Unknown ShaderDataType!");
-		return 0;
-	}
+
 
 	Application::Application()
 	{
@@ -48,8 +29,8 @@ namespace Walnut {
 
 		///////////////// Graphics Stuff /////////////////
 
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		//// Triangle ////
+		m_VertexArray.reset(VertexArray::Create());
 
 		// Triangle Data
 		float vertices[3 * 7] = {
@@ -58,37 +39,46 @@ namespace Walnut {
 			 0.0f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
 		};
 
+		// Vertex Buffer
+		std::shared_ptr<VertexBuffer> triangleVB;
+		triangleVB.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
-
-		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-
-		{
-			BufferLayout layout = {
-				{ShaderDataType::Float3, "a_Position"}, // This is an element
-				{ShaderDataType::Float4, "a_Color"}
-			};
-			m_VertexBuffer->SetLayout(layout);
-		}
-
-		uint32_t index = 0;
-		const auto& layout = m_VertexBuffer->GetLayout();
-		for (const auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(
-				index,											// Index to be used in shader
-				element.GetComponentCount(),					// How many components in this element (vec3 has 3 componenets)
-				ShaderDataTypeToOpenGLBaseType(element.Type),	// The data type
-				element.Normalized,								// Should GL normalize the data for you, defaults to false
-				layout.GetStride(),								// Size of element in bytes (vec3 = 3 components * 4 bytes)
-				(const void*)element.Offset						// Offset to get to this element in the layout (size in bytes of all previous elements in layout)
-			);
-			index++;
-		}
+		BufferLayout layout = {
+			{ShaderDataType::Float3, "a_Position"}, // This is an element
+			{ShaderDataType::Float4, "a_Color"}
+		};
 		
-		// Index Buffer  (tells open the order to draw vertices
+		triangleVB->SetLayout(layout); // You must set the layout before adding to VA
+		m_VertexArray->AddVertexBuffer(triangleVB);
+		
+		// Index Buffer
 		uint32_t indices[3] = { 0, 1, 2 };
-		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		std::shared_ptr<IndexBuffer> triangleIB;
+		triangleIB.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		m_VertexArray->SetIndexBuffer(triangleIB);
+
+		//// Square /////
+		m_SquareVA.reset(VertexArray::Create());
+
+		float squareVertices[3 * 4] = {
+		 -0.75f, -0.75f, 0.0f,
+		  0.75f, -0.75f, 0.0f,
+		  0.75f,  0.75f, 0.0f,
+		 -0.75f,  0.75f, 0.0f
+		};
+
+		std::shared_ptr<VertexBuffer> squareVB;
+		squareVB.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+
+		squareVB->SetLayout({ 
+			{ ShaderDataType::Float3, "a_Position" } 
+		});
+		m_SquareVA->AddVertexBuffer(squareVB);
+
+		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+		std::shared_ptr<IndexBuffer> squareIB;
+		squareIB.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		m_SquareVA->SetIndexBuffer(squareIB);
 
 		// Shaders
 		std::string vertexSrc = R"( 
@@ -125,6 +115,31 @@ namespace Walnut {
 		)";
 
 		m_Shader.reset(Shader::Create(vertexSrc, fragmentSrc));
+
+		// Shaders
+		std::string blueVertShaderSrc = R"( 
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+
+			void main()
+			{
+				gl_Position = vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string blueFragShaderSrc = R"( 
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+
+			void main()
+			{
+				color = vec4(0.2, 0.3, 0.8, 1.0);
+			}
+		)";
+
+		m_BlueShader.reset(Shader::Create(blueVertShaderSrc, blueFragShaderSrc));
 	}
 
 	Application::~Application()
@@ -160,19 +175,24 @@ namespace Walnut {
 
 		while (m_Running)
 		{	
-			////// Rendering /////
+			//////////// Rendering ///////////
 
 			// Clear screen
 			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			//// Draw Square ////
+
+			m_BlueShader->Bind();
+			m_SquareVA->Bind();
+			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 			
-			// Bind shader
+			//// Draw Triangle ////
 			m_Shader->Bind();
+			m_VertexArray->Bind();
+			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
-			// Draw triangle
-			//m_VertexArray->Bind();
-
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			//////////////////////////////////
 
 			for (Layer* layer : m_LayerStack)
 			{
