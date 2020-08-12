@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Walnut/Renderer/Buffer.h"
+#include <memory>
 
 namespace Walnut {
 

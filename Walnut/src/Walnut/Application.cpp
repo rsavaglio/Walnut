@@ -4,19 +4,14 @@
 #include "Walnut/Log.h"
 #include "Walnut/Input.h"
 
-
-#include <Glad/glad.h>
-
-
 namespace Walnut {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
-
-
 	Application::Application()
+		: m_Camera(-1.0f, 1.0f, -1.0f, 1.0f)
 	{
 		WN_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
@@ -86,6 +81,8 @@ namespace Walnut {
 			
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
+
+			uniform mat4 u_VP;
 			
 			out vec3 v_Position;			
 			out vec4 v_Color;
@@ -94,7 +91,7 @@ namespace Walnut {
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = vec4(a_Position, 1.0);
+				gl_Position = u_VP * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -122,9 +119,11 @@ namespace Walnut {
 			
 			layout(location = 0) in vec3 a_Position;
 
+			uniform mat4 u_VP;
+
 			void main()
 			{
-				gl_Position = vec4(a_Position, 1.0);
+				gl_Position = u_VP * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -177,20 +176,19 @@ namespace Walnut {
 		{	
 			//////////// Rendering ///////////
 
-			// Clear screen
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor(glm::vec4(0.1f, 0.1f, 0.1f, 1));
+			RenderCommand::Clear();
 
-			//// Draw Square ////
+			Renderer::BeginScene();
 
 			m_BlueShader->Bind();
-			m_SquareVA->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
-			
-			//// Draw Triangle ////
+			m_BlueShader->UploadUniformMat4("m_VP", m_Camera.GetVP());
+			Renderer::Submit(m_SquareVA);
+
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			m_Shader->UploadUniformMat4("m_VP", m_Camera.GetVP());
+			Renderer::Submit(m_VertexArray);
+			Renderer::EndScene();
 
 			//////////////////////////////////
 

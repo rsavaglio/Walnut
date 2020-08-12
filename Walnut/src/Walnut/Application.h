@@ -9,9 +9,12 @@
 
 #include "Walnut/ImGui/ImGuiLayer.h"
 
+#include "Walnut/Renderer/Renderer.h"
 #include "Walnut/Renderer/Shader.h"
 #include "Walnut/Renderer/Buffer.h"
 #include "Walnut/Renderer/VertexArray.h"
+
+#include "Walnut/Renderer/Camera.h"
 
 namespace Walnut {
 
@@ -47,6 +50,8 @@ namespace Walnut {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthoCamera m_Camera;
 
 	private:
 		static Application* s_Instance;

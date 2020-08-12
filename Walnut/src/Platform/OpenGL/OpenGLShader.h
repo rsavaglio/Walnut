@@ -2,6 +2,7 @@
 
 #include "Walnut/Renderer/Shader.h"
 #include <string>
+#include <glm/glm.hpp>
 
 namespace Walnut {
 
@@ -13,6 +14,8 @@ namespace Walnut {
 
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
+
+		virtual void UploadUniformMat4(const std::string& name, const glm::mat4& matrix) override;
 
 	private:
 		uint32_t m_RendererID; // Number that identifies this object in OpenGL
